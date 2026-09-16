@@ -21,8 +21,10 @@ def get_new_user_token():
 
 # Функция для создания набора (kit) с передачей токена авторизации
 def post_new_client_kit(kit_body, auth_token):
+    data.kit_headers['Authorization'] += auth_token
+    headers = data.kit_headers
     return requests.post(
         configuration.URL_SERVICE + configuration.CREATE_KIT_PATH,
         json=kit_body,
-        headers=data.kit_header['Authorization'] + auth_token
+        headers=headers
     )
