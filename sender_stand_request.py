@@ -21,13 +21,8 @@ def get_new_user_token():
 
 # Функция для создания набора (kit) с передачей токена авторизации
 def post_new_client_kit(kit_body, auth_token):
-    # Заголовок Authorization с токеном (формат Bearer, как требует документация)
-    headers = {
-        "Authorization": f"Bearer {auth_token}",
-        "Content-Type": "application/json"
-    }
     return requests.post(
         configuration.URL_SERVICE + configuration.CREATE_KIT_PATH,
         json=kit_body,
-        headers=headers
+        headers=data.kit_header['Authorization'] + auth_token
     )
