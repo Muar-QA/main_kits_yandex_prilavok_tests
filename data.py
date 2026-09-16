@@ -14,3 +14,8 @@ user_body = {
 kit_body = {
     "name": "Тестовый набор"
 }
+
+ # Заголовок Authorization с токеном (формат Bearer, как требует документация)
+kit_headers = {
+    "Authorization": "Bearer ",
+    "Content-Type": "application/json"
